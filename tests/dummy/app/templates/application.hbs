@@ -1,3 +1,155 @@
-<h2 id="title">Welcome to Ember</h2>
+{{#demo-css class='container'}}
+<h1 id="title"><a href="https://github.com/lifegadget/ui-slider">ui-slider</a></h1>
+<h2>A versatile slider control for ambitious Ember apps</h2>
 
-{{outlet}}
+<h3>Background</h3>
+<p>
+  This control sits on the shoulder of the great work from @seiyria and @revolution on their <a href="https://github.com/seiyria/bootstrap-slider">bootstrap-slider</a> control. The primary focus of this Ember addon is just to make this work easily accessible to Ember developers.
+</p>
+<h3>Basic Usage</h3>
+<row>
+  <widget>
+    {{ui-slider}}
+  </widget>
+  <code>
+    {{display-component componentName='ui-slider'}}
+  </code>
+  <description>
+    A plain slider control defaults to 1 to 10 integer slider.
+  </description>
+</row>
+<row>
+  <widget>
+    {{ui-slider
+      value=value
+      min=min
+      max=max
+      step=step
+      tooltip=tooltip
+      disabled=disabled
+      handle=handle
+      reversed=reversed
+      selection=selection
+    }}
+  </widget>
+  <code>
+    {{display-component componentName='ui-slider'
+      value=value
+      min=min
+      max=max
+      step=step
+      tooltip=tooltip
+      disabled=disabled
+      handle=handle
+      selection=selection
+      reversed=reversed
+    }}
+  </code>
+  <description>
+    The most basic parameters are those used to set the appropriate range of numbers:
+
+    <controls>
+      <control>
+        <span class='name'>min</span>
+        <span>{{number-input step=1 skin='flat' value=min}}</span>
+        <span></span>
+        <span class='name'>max</span>
+        <span>{{number-input step=1 skin='flat' value=max}}</span>
+        <span class='name'>step</span>
+        <span>{{number-input step=0.25 skin='flat' value=step}}</span>
+      </control>
+    </controls>
+    <controls>
+      <control>
+        <span class='name'>It is also possible to enable/disable</span>
+        <span>{{ui-toggle-button on='disabled' off='enabled' value=disabled}}</span>
+      </control>
+      <control>
+        <span class='name'>Tooltips can be:</span>
+        <span>{{radio-buttons buttons='show,hide,always' value=tooltip}}</span>
+      </control>
+      <control>
+        <span class='name'>Handle shape:</span>
+        <span>{{radio-buttons buttons='round,square,triangle' value=handle}}</span>
+      </control>
+      <control>
+        <span class='name'>Reversed:</span>
+        <span>{{ui-toggle-button on='reversed' off='normal' value=reversed}}</span>
+      </control>
+      <control>
+        <span class='name'>Selection:</span>
+        <span>{{radio-buttons buttons='before,after,none' value=selection}}</span>
+      </control>
+{{!--       <control>
+        <span class='name'>Ticks:</span>
+        <span>{{checkbox-buttons buttons='30,50,70' values=ticks}}</span>
+      </control>
+ --}}    </controls>
+  </description>
+</row>
+
+<h3>Data down, actions up</h3>
+<row>
+  <widget>
+    {{ui-slider
+      defaultValue=defaultValue
+    }}
+  </widget>
+  <code>
+    {{display-component componentName='ui-slider'
+      defaultValue=defaultValue
+    }}
+  </code>
+  <description>
+    In the previous example you saw that there is a two-way binding to <prop>value</prop> but if you prefer a one-way binding then this can be achieved by just binding to the <prop>defaultValue</prop> property instead.
+  </description>
+</row>
+<row>
+  <widget>
+    {{ui-slider
+      defaultValue=defaultValue2
+      min=min2
+      max=max2
+      step=step2
+      action='action'
+      error='error'
+      changed='changed'
+    }}
+  </widget>
+  <code>
+    {{display-component componentName='ui-slider'
+      defaultValue=defaultValue2
+      min=min2
+      max=max2
+      step=step2
+      action='action'
+      error='error'
+      changed='changed'
+    }}
+  </code>
+  <description>
+    There are three actions available for containers to bind action handlers to:
+
+    <ul>
+      <li><b>action</b> - provides a commentary actions such as <i>slideStart</i>, <i>slideStop</i>, <i>slideEnabled</i>, and <i>slideDisabled</i></li>
+      <li><b>error</b> - indicates when constraints have been violated</li>
+      <li><b>changed</b> - indicates when values have changed</li>
+    </ul>
+
+    <controls>
+      <control>
+        <span class='name'>min</span>
+        <span>{{number-input step=1 skin='flat' value=min2 defaultValue=1}}</span>
+        <span></span>
+        <span class='name'>max</span>
+        <span>{{number-input step=1 skin='flat' value=max2 defaultValue=100}}</span>
+        <span class='name'>step</span>
+        <span>{{number-input step=0.25 skin='flat' value=step2}}</span>
+      </control>
+    </controls>
+  </description>
+</row>
+
+
+
+{{/demo-css}}

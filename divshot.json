@@ -1,0 +1,6 @@
+{
+  "name": "ui-slider",
+  "root": "dist",
+  "clean_urls": true,
+  "error_page": "index.html"
+}
