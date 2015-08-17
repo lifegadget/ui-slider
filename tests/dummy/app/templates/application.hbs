@@ -30,6 +30,7 @@
       handle=handle
       reversed=reversed
       selection=selection
+      tooltipPosition=tooltipPosition
     }}
   </widget>
   <code>
@@ -43,6 +44,7 @@
       handle=handle
       selection=selection
       reversed=reversed
+      tooltipPosition=tooltipPosition
     }}
   </code>
   <description>
@@ -66,7 +68,10 @@
       </control>
       <control>
         <span class='name'>Tooltips can be:</span>
-        <span>{{radio-buttons buttons='show,hide,always' value=tooltip}}</span>
+        <span>
+          {{radio-buttons buttons='show,hide,always' value=tooltip size='small'}} &nbsp;
+          {{radio-buttons buttons='top,bottom' value=tooltipPosition size='small'}}
+        </span>
       </control>
       <control>
         <span class='name'>Handle shape:</span>
@@ -80,13 +85,70 @@
         <span class='name'>Selection:</span>
         <span>{{radio-buttons buttons='before,after,none' value=selection}}</span>
       </control>
-{{!--       <control>
-        <span class='name'>Ticks:</span>
-        <span>{{checkbox-buttons buttons='30,50,70' values=ticks}}</span>
-      </control>
- --}}    </controls>
+    </controls>
   </description>
 </row>
+
+<h3>Mood Styling and Sections</h3>
+<row>
+  <widget>
+    {{ui-slider
+      mood=mood
+    }}
+  </widget>
+  <code>
+    {{display-component componentName='ui-slider'
+      mood=mood
+    }}
+  </code>
+  <description>
+    This control provides lots of CSS hooks to style off of but also includes some standard ones that might be helpful out of the box:
+    <controls>
+      <control>
+      <span class='name'>mood:</span>
+        <span>{{radio-buttons buttons='none:::null,success,info,warning,error' value=mood}}</span>
+      </control>
+    </controls>
+    <p>
+      All that's happening in this situation is the mood property is being added as a class called <prop>mood-[xxxx]</prop>. These properties are defined and of course you can set your own or override these.
+    </p>
+  </description>
+</row>
+<row>
+  <widget>
+    {{ui-slider
+      mood=mood2
+      sections=sections
+      action='sectionsAction'
+      max=100
+    }}
+  </widget>
+  <code>
+    {{display-component componentName='ui-slider'
+      mood=mood2
+      sections=sections
+      max=100
+    }}
+  </code>
+  <description>
+    Beyond <i>mood styling</i>, you can segment the range of your slider into discrete section and style differently based on value. This can either be done by stating how many sections to divy up your values range up by or by stating discrete boundaries for the sections.
+    <controls>
+      <control>
+        <span class='name'>mood:</span>
+        <span>{{radio-buttons buttons='success,info,warning,error,rag,gar' value=mood2 size='small'}}</span>
+      </control>
+      <control>
+        <span class='name'>sections:</span>
+        <span>{{radio-buttons buttons='none:::null,3:::3,4:::4,10:::10,discrete:::3|6|9' value=sections size='small'}}</span>
+      </control>
+    </controls>
+    <p>
+      Now whenever the value changes it recalculates what "section" it is and applies the meta-information. The mood settings do have some values for sectional variation so you'll see the gradiation as you move it back and forth but check the underlying HTML to understand what's happening.
+    </p>
+  </description>
+</row>
+
+
 
 <h3>Data down, actions up</h3>
 <row>
@@ -107,6 +169,7 @@
 <row>
   <widget>
     {{ui-slider
+      value=DDAUvalue
       defaultValue=defaultValue2
       min=min2
       max=max2
@@ -114,10 +177,12 @@
       action='action'
       error='error'
       changed='changed'
+      disabled=disabled2
     }}
   </widget>
   <code>
     {{display-component componentName='ui-slider'
+      value=DDAUvalue
       defaultValue=defaultValue2
       min=min2
       max=max2
@@ -125,6 +190,7 @@
       action='action'
       error='error'
       changed='changed'
+      disabled=disabled2
     }}
   </code>
   <description>
@@ -138,18 +204,32 @@
 
     <controls>
       <control>
-        <span class='name'>min</span>
-        <span>{{number-input step=1 skin='flat' value=min2 defaultValue=1}}</span>
-        <span></span>
-        <span class='name'>max</span>
-        <span>{{number-input step=1 skin='flat' value=max2 defaultValue=100}}</span>
-        <span class='name'>step</span>
-        <span>{{number-input step=0.25 skin='flat' value=step2}}</span>
+        <span class='name'>set value to:</span>
+        <span>{{ui-buttons buttons='20:::20,60:::60,100:::100,150:::150' action='valueChanged'}}</span>
       </control>
+      <control>
+        <span class='name'>Use enable/disable to trigger actions</span>
+        <span>{{ui-toggle-button on='disabled' off='enabled' value=disabled2}}</span>
+      </control>
+
     </controls>
   </description>
 </row>
 
-
+<h3>Range Slider</h3>
+<p>Unlike the normal <prop>ui-slider</prop> the <prop>range-slider</prop> has two values which together represent a range. This component's <prop>value</prop> property is a two element array but outside of that it has more similarities than differences.</p>
+<row>
+  <widget>
+    {{ui-slider}}
+  </widget>
+  <code>
+    {{display-component componentName='range-slider'
+      defaultValue=defaultValue
+    }}
+  </code>
+  <description>
+    In the previous example you saw that there is a two-way binding to <prop>value</prop> but if you prefer a one-way binding then this can be achieved by just binding to the <prop>defaultValue</prop> property instead.
+  </description>
+</row>
 
 {{/demo-css}}

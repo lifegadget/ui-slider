@@ -1,0 +1,187 @@
+/* MOODS */
+.ui-slider.mood-success .slider-handle {
+  background: hsl(120, 39%, 30%);
+}
+.ui-slider.mood-success .slider-selection {
+  background: hsl(120, 39%, 70%);
+}
+.ui-slider.mood-success.section-1 .slider-selection {
+  background: hsl(120, 39%, 95%);
+}
+.ui-slider.mood-success.section-2 .slider-selection {
+  background: hsl(120, 39%, 90%);
+}
+.ui-slider.mood-success.section-3 .slider-selection {
+  background: hsl(120, 39%, 85%);
+}
+.ui-slider.mood-success.section-4 .slider-selection {
+  background: hsl(120, 39%, 80%);
+}
+.ui-slider.mood-success.section-5 .slider-selection {
+  background: hsl(120, 39%, 75%);
+}
+.ui-slider.mood-success.section-6 .slider-selection {
+  background: hsl(120, 39%, 70%);
+}
+.ui-slider.mood-success.section-7 .slider-selection {
+  background: hsl(120, 39%, 65%);
+}
+.ui-slider.mood-success.section-8 .slider-selection {
+  background: hsl(120, 39%, 60%);
+}
+.ui-slider.mood-success.section-9 .slider-selection {
+  background: hsl(120, 39%, 55%);
+}
+.ui-slider.mood-success.section-10 .slider-selection {
+  background: hsl(120, 39%, 50%);
+}
+/* info */
+.ui-slider.mood-info .slider-handle {
+  background: hsl(194, 66%, 30%);
+}
+.ui-slider.mood-info .slider-selection {
+  background: hsl(194, 66%, 70%);
+}
+.ui-slider.mood-info.section-1 .slider-selection {
+  background: hsl(194, 66%, 95%);
+}
+.ui-slider.mood-info.section-2 .slider-selection {
+  background: hsl(194, 66%, 90%);
+}
+.ui-slider.mood-info.section-3 .slider-selection {
+  background: hsl(194, 66%, 85%);
+}
+.ui-slider.mood-info.section-4 .slider-selection {
+  background: hsl(194, 66%, 80%);
+}
+.ui-slider.mood-info.section-5 .slider-selection {
+  background: hsl(194, 66%, 75%);
+}
+.ui-slider.mood-info.section-6 .slider-selection {
+  background: hsl(194, 66%, 70%);
+}
+.ui-slider.mood-info.section-7 .slider-selection {
+  background: hsl(194, 66%, 65%);
+}
+.ui-slider.mood-info.section-8 .slider-selection {
+  background: hsl(194, 66%, 60%);
+}
+.ui-slider.mood-info.section-9 .slider-selection {
+  background: hsl(194, 66%, 55%);
+}
+.ui-slider.mood-info.section-10 .slider-selection {
+  background: hsl(194, 66%, 50%);
+}
+/* warning */
+.ui-slider.mood-warning .slider-handle {
+  background: hsl(35, 84%, 30%);
+}
+.ui-slider.mood-warning .slider-selection {
+  background: hsl(35, 84%, 70%);
+}
+.ui-slider.mood-warning.section-1 .slider-selection {
+  background: hsl(35, 84%, 95%);
+}
+.ui-slider.mood-warning.section-2 .slider-selection {
+  background: hsl(35, 84%, 90%);
+}
+.ui-slider.mood-warning.section-3 .slider-selection {
+  background: hsl(35, 84%, 85%);
+}
+.ui-slider.mood-warning.section-4 .slider-selection {
+  background: hsl(35, 84%, 80%);
+}
+.ui-slider.mood-warning.section-5 .slider-selection {
+  background: hsl(35, 84%, 75%);
+}
+.ui-slider.mood-warning.section-6 .slider-selection {
+  background: hsl(35, 84%, 70%);
+}
+.ui-slider.mood-warning.section-7 .slider-selection {
+  background: hsl(35, 84%, 65%);
+}
+.ui-slider.mood-warning.section-8 .slider-selection {
+  background: hsl(35, 84%, 60%);
+}
+.ui-slider.mood-warning.section-9 .slider-selection {
+  background: hsl(35, 84%, 55%);
+}
+.ui-slider.mood-warning.section-10 .slider-selection {
+  background: hsl(35, 84%, 50%);
+}
+/* error */
+.ui-slider.mood-error .slider-handle {
+  background: hsl(2, 64%, 30%);
+}
+.ui-slider.mood-error .slider-selection {
+  background: hsl(2, 64%, 70%);
+}
+.ui-slider.mood-error.section-1 .slider-selection {
+  background: hsl(2, 64%, 95%);
+}
+.ui-slider.mood-error.section-2 .slider-selection {
+  background: hsl(2, 64%, 90%);
+}
+.ui-slider.mood-error.section-3 .slider-selection {
+  background: hsl(2, 64%, 85%);
+}
+.ui-slider.mood-error.section-4 .slider-selection {
+  background: hsl(2, 64%, 80%);
+}
+.ui-slider.mood-error.section-5 .slider-selection {
+  background: hsl(2, 64%, 75%);
+}
+.ui-slider.mood-error.section-6 .slider-selection {
+  background: hsl(2, 64%, 70%);
+}
+.ui-slider.mood-error.section-7 .slider-selection {
+  background: hsl(2, 64%, 65%);
+}
+.ui-slider.mood-error.section-8 .slider-selection {
+  background: hsl(2, 64%, 60%);
+}
+.ui-slider.mood-error.section-9 .slider-selection {
+  background: hsl(2, 64%, 55%);
+}
+.ui-slider.mood-error.section-10 .slider-selection {
+  background: hsl(2, 64%, 50%);
+}
+/* RAG */
+.ui-slider.mood-rag.section-1 .slider-handle {
+  background: hsl(2, 64%, 35%);
+}
+.ui-slider.mood-rag.section-1 .slider-selection {
+  background: hsl(2, 64%, 75%);
+}
+.ui-slider.mood-rag.section-2 .slider-handle {
+  background: hsl(44, 64%, 35%);
+}
+.ui-slider.mood-rag.section-2 .slider-selection {
+  background: hsl(44, 64%, 75%);
+}
+.ui-slider.mood-rag.section-3 .slider-handle {
+  background: hsl(120, 39%, 35%);
+}
+.ui-slider.mood-rag.section-3 .slider-selection {
+  background: hsl(120, 39%, 75%);
+}
+/* GAR */
+.ui-slider.mood-gar.section-3 .slider-handle {
+  background: hsl(2, 64%, 35%);
+}
+.ui-slider.mood-gar.section-3 .slider-selection {
+  background: hsl(2, 64%, 75%);
+}
+.ui-slider.mood-gar.section-2 .slider-handle {
+  background: hsl(44, 64%, 35%);
+}
+.ui-slider.mood-gar.section-2 .slider-selection {
+  background: hsl(44, 64%, 75%);
+}
+.ui-slider.mood-gar.section-1 .slider-handle {
+  background: hsl(120, 39%, 35%);
+}
+.ui-slider.mood-gar.section-1 .slider-selection {
+  background: hsl(120, 39%, 75%);
+}
+

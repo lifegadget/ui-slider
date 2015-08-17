@@ -7,5 +7,6 @@ module.exports = {
   included: function(app) {
     app.import('bower_components/seiyria-bootstrap-slider/js/bootstrap-slider.js');
     app.import('bower_components/seiyria-bootstrap-slider/css/bootstrap-slider.css');
+    app.import('vendor/ui-slider/ui-slider.css');
   }
 };

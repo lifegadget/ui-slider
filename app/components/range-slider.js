@@ -1,0 +1,1 @@
+export { default } from 'ui-ember-slider/components/range-slider';
