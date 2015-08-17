@@ -1,5 +1,5 @@
 {
-  "name": "ui-slider",
+  "name": "ui-ember-slider",
   "version": "0.0.1",
   "description": "A visually attractive slider for ambitious Ember apps",
   "directories": {
@@ -11,11 +11,25 @@
     "start": "ember server",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": "git@github.com:lifegadget/ui-slider.git",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Ken Snyder",
+    "files": [
+      "Brocfile.js",
+      "LICENSE.md",
+      "README.md",
+      "addon",
+      "app",
+      "bower.json",
+      "config",
+      "index.js",
+      "package.json",
+      "testem.json",
+      "vendor"
+    ],
+    "main": "index.js",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.1.2",

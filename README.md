@@ -1,17 +1,19 @@
-# [ui-slider](https://github.com/lifegadget/ui-slider) ![ ](https://travis-ci.org/lifegadget/ui-slider.svg) [![npm version](https://badge.fury.io/js/ui-slider.svg)](http://badge.fury.io/js/ui-slider) [![Code Climate](https://codeclimate.com/github/lifegadget/ui-slider/badges/gpa.svg)
+# [ui-slider](https://github.com/lifegadget/ui-slider) ![ ](https://travis-ci.org/lifegadget/ui-slider.svg) [![npm version](https://badge.fury.io/js/ui-ember-slider.svg)](http://badge.fury.io/js/ui-slider) [![Code Climate](https://codeclimate.com/github/lifegadget/ui-slider/badges/gpa.svg)
 > Input controls for ambitious Ember applications.
 
 ## Install ##
 - Modern CLI versions
     ````bash
-    ember install ui-slider
+    ember install ui-ember-slider
     ````
 
 - Earlier CLI versions (and *addon developers*)
     ````bash
-    npm install ui-slider --save-dev
-    ember g ui-slider
+    npm install ui-ember-slider --save-dev
+    ember g ui-ember-slider
     ````
+
+> note: sadly the **npm** name `ui-slider` was already taken so for npm it has the elongated name of `ui-ember-slider` but the component name remains `ui-slider`
 
 ## Usage ##
 For more details on the syntax check out the interactive demo:
