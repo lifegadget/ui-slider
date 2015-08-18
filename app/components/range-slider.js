@@ -1,1 +1,1 @@
-export { default } from 'ui-ember-slider/components/range-slider';
+export { default } from 'ui-slider/components/range-slider';

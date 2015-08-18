@@ -4,7 +4,7 @@
 
 <h3>Background</h3>
 <p>
-  This control sits on the shoulder of the great work from @seiyria and @revolution on their <a href="https://github.com/seiyria/bootstrap-slider">bootstrap-slider</a> control. The primary focus of this Ember addon is just to make this work easily accessible to Ember developers.
+  This control sits on the shoulder of the great work from @seiyria and @rovolution on their <a href="https://github.com/seiyria/bootstrap-slider">bootstrap-slider</a> control. The primary focus of this Ember addon is just to make this work easily accessible to Ember developers.
 </p>
 <h3>Basic Usage</h3>
 <row>
@@ -81,11 +81,13 @@
       </control>
       <control>
         <span class='name'>Handle shape:</span>
-        <span>{{radio-buttons buttons='round,square,triangle' value=handle}}</span>
+        <span>{{radio-buttons buttons='round,square,triangle,rect' value=handle size='small'}}</span>
       </control>
       <control>
         <span class='name'>Reversed:</span>
         <span>{{ui-toggle-button on='reversed' off='normal' value=reversed}}</span>
+        <span class='name'>↑/↓ Direction:</span>
+        <span>{{ui-toggle-button on='direction' off='numeric' value=naturalArrowKeys}}</span>
       </control>
       <control>
         <span class='name'>Selection:</span>
@@ -94,10 +96,8 @@
       <control>
         <span class='name'>Focus:</span>
         <span>{{ui-toggle-button on='focus' off='do not focus' value=focus}}</span>
-        <span class='name'>Arrow Direction:</span>
-        <span>{{ui-toggle-button on='up is left' off='up is right' value=naturalArrowKeys}}</span>
       </control>
-      <p>
+      <p class='downer'>
         Also notice that the value property is being updated only when the user finishes the slide. This is often a desirable effect and it is more efficient that constantly reacting to each movement but if you need immediate response you can turn it on.
       </p>
       <control>
@@ -158,12 +158,15 @@
       </control>
       <control>
         <span class='name'>sections:</span>
-        <span>{{radio-buttons buttons='none:::null,3:::3,4:::4,5:::5,10:::10,discrete:::3|6|9' value=sections size='small'}}</span>
+        <span>{{radio-buttons buttons='none:::null,3:::3,4:::4,5:::5,10:::10,discrete:::10|30|70|90' value=sections size='small'}}</span>
       </control>
     </controls>
     <p>
       Now whenever the value changes it recalculates what "section" it is and applies the meta-information. The mood settings do have some values for sectional variation so you'll see the gradiation as you move it back and forth but check the underlying HTML to understand what's happening.
     </p>
+    <note>
+      <b>Note:</b> we added a few non-bootstrap like "moods" because they are particularly useful in sliders. Try out the "rag" mood (aka, Red-Amber-Green) with 3-sections or try "ragar" (e.g., green in the middle) with either 5 sections or the <i>discrete</i> setting.
+    </note>
   </description>
 </row>
 
@@ -306,15 +309,35 @@
 <p>Unlike the normal <prop>ui-slider</prop> the <prop>range-slider</prop> has two values which together represent a range. This component's <prop>value</prop> property is a two element array but outside of that it has more similarities than differences.</p>
 <row>
   <widget>
-    {{ui-slider}}
+    {{range-slider}}
+  </widget>
+  <code>
+    {{display-component componentName='range-slider'}}
+  </code>
+  <description>
+    With no parameters, here's what the range slider will look like.
+  </description>
+</row>
+<row>
+  <widget>
+    {{range-slider
+      mood=moodRange
+      defaultValue='1,5'
+    }}
   </widget>
   <code>
     {{display-component componentName='range-slider'
-      defaultValue=defaultValue
+      mood=moodRange
     }}
   </code>
   <description>
-    In the previous example you saw that there is a two-way binding to <prop>value</prop> but if you prefer a one-way binding then this can be achieved by just binding to the <prop>defaultValue</prop> property instead.
+    You can use mood styles just like with normal sliders. Moods like 'rag' are less sensical here but as always its just CSS so no magic, try whatever you like.
+    <controls>
+      <control>
+      <span class='name'>mood:</span>
+        <span>{{radio-buttons buttons='success,info,warning,error' value=moodRange}}</span>
+      </control>
+    </controls>
   </description>
 </row>
 

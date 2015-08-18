@@ -31,7 +31,7 @@ const MAXIMAL_VALUE = 'max_value_exceeded';
 export default Ember.Component.extend({
   layout: layout,
   classNames: ['ui-slider'],
-  classNameBindings: ['isSliding:sliding','_mood','_section'],
+  classNameBindings: ['isSliding:sliding','_mood','_section','range:range:singular'],
   // API Surface (defaults)
   min: 1,
   max: 10,
@@ -117,14 +117,25 @@ export default Ember.Component.extend({
   }),
   _valueObserver() {
     run.next(()=> {
-      let {value,min,max,sections,_section} = this.getProperties('value','min','max','sections','_section');
+      let {value,min,max,sections,_section,range} = this.getProperties('value','min','max','sections','_section','range');
       const controlValue = this._slider.slider('getValue');
-      if(value !== controlValue) {
-        value = (value < min) ? this.handleMinimalValue() : value;
-        value = (value > max) ? this.handleMaximalValue() : value;
-        this._slider.slider('setValue', value);
+
+      if(JSON.stringify(value) !== JSON.stringify(controlValue)) {
+        // regardless of whether range or not process as an array
+        value = typeOf(value) === 'array' ? value : [value];
+        value = value.map(v => {
+          v = (v < min) ? this.handleMinimalValue() : v;
+          v = (v > max) ? this.handleMaximalValue() : v;
+
+          return v;
+        });
+        // now convert back to scalar if appropriate
+        value = range ? value : value[0];
+        this.setValue(value);
+
         this.sendAction('action', 'value-sync', {
           context: this,
+          value: value,
           message: `A new value -- ${value} -- was received by container and pushed into slider UI`
         });
       }
@@ -271,8 +282,9 @@ export default Ember.Component.extend({
     this._slider.slider('destroy');
   },
   setDefaultValue() {
-    const {defaultValue,value} = this.getProperties('defaultValue', 'value');
+    let {defaultValue,value} = this.getProperties('defaultValue', 'value');
     if(new A(['null','undefined']).contains(typeOf(value))) {
+      defaultValue = typeOf(defaultValue) === 'string' && defaultValue.split(',').length > 1 ? defaultValue.split(',') : defaultValue;
       this.set('value', defaultValue);
     }
   },
