@@ -13,6 +13,7 @@
     "qunit": "~1.18.0",
     "seiyria-bootstrap-slider": "~5.0.13",
     "bootstrap": "~3.3.5",
-    "babel-polyfill": "~0.0.1"
+    "babel-polyfill": "~0.0.1",
+    "animate.css": "~3.4.0"
   }
 }
