@@ -5,7 +5,7 @@ const snake = thingy => {
   return thingy ? Ember.String.underscore(thingy) : thingy;
 };
 import layout from '../templates/components/ui-slider';
-const numericApiSurface = ['min','max','step','precision'];
+const numericApiSurface = ['min','max','step','precision','ticksSnapBounds'];
 const booleanApiSurface = ['range','tooltipSplit','reversed','enabled','naturalArrowKeys'];
 const stringApiSurface = ['selection','tooltip','tooltipSeparator', 'tooltipPosition', 'selection', 'handle'];
 const arrayApiSurface = ['ticks','ticksPositions','ticksLabels'];
@@ -48,6 +48,10 @@ export default Ember.Component.extend({
   reversed: false,
   enabled: true,
   naturalArrowKeys: false,
+  ticks:[],
+  ticksPositions:[],
+  ticksLabels:[],
+  ticksSnapBounds:0,
   // VALUE
   keepInRange: true,
   _value: observer('value','min','max','step', function() {
@@ -58,7 +62,6 @@ export default Ember.Component.extend({
   _section: computed('value','sections', function() {
     const {_oldSection} = this.getProperties('_oldSection');
     const newSection = this.sectionCalculator();
-    console.log('new section: %o', newSection);
 
     if(newSection && newSection !== _oldSection) {
       this.sendAction('action','section-change',{
@@ -73,7 +76,6 @@ export default Ember.Component.extend({
   }),
   sectionCalculator() {
     let {sections,min,max,value} = this.getProperties('sections','min','max','value');
-    console.log('section calculator: %o value', value);
     if(!sections || !value) {
       return null;
     }
@@ -87,7 +89,6 @@ export default Ember.Component.extend({
     } else {
       const width = max - min + 1;
       const sectionWidth = width / Number(sections);
-      console.log('width: %s. sectionWidth: %s', width,sectionWidth);
       section = Math.floor((value-min)/sectionWidth) + 1;
     }
 
@@ -203,16 +204,31 @@ export default Ember.Component.extend({
       options[snake(item)] = Boolean(this.get(item));
       return item;
     });
+    arrayApiSurface.map(item=> {
+      let data = this.get(item);
+      if(typeOf(data) === 'string') {
+        data = data.split(',');
+        data = data.map(d=> {
+          return Number.isNaN(Number(d)) ? d : Number(d);
+        });
+      }
+      if(data) {
+        options[snake(item)] = data;
+      }
+      return item;
+    });
+
+    options = assign(options, this.getProperties(stringApiSurface));
 
     return options;
   },
   initializeJqueryComponent() {
+    const elementId = this.get('elementId');
     let options = this.getConfiguration();
     let value = this.get('value');
     value = typeOf(value) === 'string' ? Number(value) : value;
     value =  Number.isNaN(value) ? options.min : value;
-    options = assign(options, this.getProperties(stringApiSurface), {value: value});
-    const elementId = this.get('elementId');
+    options = assign(options, {value: value});
     this._slider = this.$(`#slider-value-${elementId}`).slider(options);
   },
   addEventListeners() {

@@ -135,11 +135,11 @@
     <controls>
       <control>
         <span class='name'>mood:</span>
-        <span>{{radio-buttons buttons='success,info,warning,error,rag,gar' value=mood2 size='small'}}</span>
+        <span>{{radio-buttons buttons='success,info,warn::warning,err::error,rag,gar,ragar' value=mood2 size='small'}}</span>
       </control>
       <control>
         <span class='name'>sections:</span>
-        <span>{{radio-buttons buttons='none:::null,3:::3,4:::4,10:::10,discrete:::3|6|9' value=sections size='small'}}</span>
+        <span>{{radio-buttons buttons='none:::null,3:::3,4:::4,5:::5,10:::10,discrete:::3|6|9' value=sections size='small'}}</span>
       </control>
     </controls>
     <p>
@@ -148,7 +148,41 @@
   </description>
 </row>
 
-
+<h3>Ticks</h3>
+<row>
+  <widget>
+    {{ui-slider
+      ticks="0,100,200,300,400"
+      ticksLabels="$0,$100,$200,$300,$400"
+      ticksSnapBounds=15
+      tooltip='hide'
+      min=0
+      max=400
+    }}
+  </widget>
+  <code>
+    {{display-component componentName='ui-slider'
+      ticks="0,100,200,150,400"
+      ticksLabels="$0,$100,$200,$300,$400"
+      ticksSnapBounds=15
+      tooltip='hide'
+      min=0
+      max=400
+    }}
+  </code>
+  <description>
+    This control provides lots of CSS hooks to style off of but also includes some standard ones that might be helpful out of the box:
+    <controls>
+      <control>
+      <span class='name'>mood:</span>
+        <span>{{radio-buttons buttons='none:::null,success,info,warning,error' value=mood}}</span>
+      </control>
+    </controls>
+    <p>
+      All that's happening in this situation is the mood property is being added as a class called <prop>mood-[xxxx]</prop>. These properties are defined and of course you can set your own or override these.
+    </p>
+  </description>
+</row>
 
 <h3>Data down, actions up</h3>
 <row>

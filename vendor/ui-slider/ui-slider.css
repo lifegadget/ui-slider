@@ -146,23 +146,34 @@
 .ui-slider.mood-error.section-10 .slider-selection {
   background: hsl(2, 64%, 50%);
 }
-/* RAG */
-.ui-slider.mood-rag.section-1 .slider-handle {
+/* RAG, RAGAR */
+.ui-slider.mood-rag.section-1 .slider-handle,
+.ui-slider.mood-raggar.section-1 .slider-handle,
+.ui-slider.mood-raggar.section-5 .slider-handle {
   background: hsl(2, 64%, 35%);
 }
-.ui-slider.mood-rag.section-1 .slider-selection {
+.ui-slider.mood-rag.section-1 .slider-selection,
+.ui-slider.mood-raggar.section-1 .slider-selection,
+.ui-slider.mood-raggar.section-5 .slider-selection {
   background: hsl(2, 64%, 75%);
 }
-.ui-slider.mood-rag.section-2 .slider-handle {
+.ui-slider.mood-rag.section-2 .slider-handle,
+.ui-slider.mood-raggar.section-2 .slider-handle,
+.ui-slider.mood-raggar.section-4 .slider-handle
+ {
   background: hsl(44, 64%, 35%);
 }
-.ui-slider.mood-rag.section-2 .slider-selection {
+.ui-slider.mood-rag.section-2 .slider-selection,
+.ui-slider.mood-raggar.section-2 .slider-selection,
+.ui-slider.mood-raggar.section-4 .slider-selection {
   background: hsl(44, 64%, 75%);
 }
-.ui-slider.mood-rag.section-3 .slider-handle {
+.ui-slider.mood-rag.section-3 .slider-handle,
+.ui-slider.mood-raggar.section-3 .slider-handle {
   background: hsl(120, 39%, 35%);
 }
-.ui-slider.mood-rag.section-3 .slider-selection {
+.ui-slider.mood-rag.section-3 .slider-selection,
+.ui-slider.mood-raggar.section-3 .slider-selection  {
   background: hsl(120, 39%, 75%);
 }
 /* GAR */
@@ -184,4 +195,5 @@
 .ui-slider.mood-gar.section-1 .slider-selection {
   background: hsl(120, 39%, 75%);
 }
+
 
