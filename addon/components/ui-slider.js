@@ -6,8 +6,8 @@ const snake = thingy => {
 };
 import layout from '../templates/components/ui-slider';
 const numericApiSurface = ['min','max','step','precision','ticksSnapBounds'];
-const booleanApiSurface = ['range','tooltipSplit','reversed','enabled','naturalArrowKeys'];
-const stringApiSurface = ['selection','tooltip','tooltipSeparator', 'tooltipPosition', 'selection', 'handle'];
+const booleanApiSurface = ['range','tooltipSplit','reversed','enabled','naturalArrowKeys','focus'];
+const stringApiSurface = ['selection','tooltip','tooltipSeparator', 'tooltipPosition', 'selection', 'handle','scale'];
 const arrayApiSurface = ['ticks','ticksPositions','ticksLabels'];
 const apiSurface = [...numericApiSurface,...booleanApiSurface,...stringApiSurface,...arrayApiSurface];
 const assign = function() {
@@ -48,12 +48,28 @@ export default Ember.Component.extend({
   reversed: false,
   enabled: true,
   naturalArrowKeys: false,
+  scale: 'linear',
+  focus: false,
   ticks:[],
   ticksPositions:[],
   ticksLabels:[],
   ticksSnapBounds:0,
   // VALUE
   keepInRange: true,
+  immediateResponse: false,
+  _immediateResponse: observer('immediateResponse', function() {
+    const immediateResponse = this.get('immediateResponse');
+    let self = this;
+    if(immediateResponse) {
+      this._slider.on('slide', function(evt) {
+        Ember.run.next(() => {
+          self.set('value', evt.value);
+        });
+      });
+    } else {
+      this._slider.off('slide');
+    }
+  }),
   _value: observer('value','min','max','step', function() {
     this._valueObserver();
   }),
@@ -76,7 +92,7 @@ export default Ember.Component.extend({
   }),
   sectionCalculator() {
     let {sections,min,max,value} = this.getProperties('sections','min','max','value');
-    if(!sections || !value) {
+    if(!sections || new A(['null','undefined']).contains(value)) {
       return null;
     }
     let section = 1;
@@ -190,6 +206,7 @@ export default Ember.Component.extend({
     });
     this._benchmarkConfig();
     this._slider.slider('refresh');
+    this.setValue(this.get('value'));
   },
   _benchmarkConfig() {
     this._benchmark = this.getProperties(apiSurface);
@@ -217,8 +234,10 @@ export default Ember.Component.extend({
       }
       return item;
     });
-
-    options = assign(options, this.getProperties(stringApiSurface));
+    stringApiSurface.map(item=>{
+      options[snake(item)] = this.get(item);
+      return item;
+    });
 
     return options;
   },
@@ -247,16 +266,6 @@ export default Ember.Component.extend({
       self.sendAction('changed', evt.value, {context: self, evt: evt, oldValue: self.get('value')});
       self.set('value', evt.value);
     });
-
-    // self.$().on('slide', function() {
-    //   Ember.run.schedule('actions', function() {
-    //     Ember.run.debounce(self, function() {
-    //       if(self.get('immediateResponse')) {
-    //         self.set('value', self.$().attr('value'));
-    //       }
-    //     }, 300);
-    //   });
-    // });
   },
   destroyJqueryComponent() {
     this._slider.slider('destroy');
@@ -270,8 +279,14 @@ export default Ember.Component.extend({
   ensureValueSynced() {
     const {value} = this.getProperties('value');
     if(!value) {
-      this.set('value', this._slider.slider('getValue'));
+      this.set('value', this.getValue());
     }
+  },
+  getValue() {
+    return this._slider.slider('getValue');
+  },
+  setValue(value) {
+    this._slider.slider('setValue', value);
   },
 
   // LIFECYCLE HOOKS

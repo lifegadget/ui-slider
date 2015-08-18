@@ -152,6 +152,11 @@
 .ui-slider.mood-raggar.section-5 .slider-handle {
   background: hsl(2, 64%, 35%);
 }
+.ui-slider.mood-rag.section-1 .slider-tick.in-selection,
+.ui-slider.mood-raggar.section-1 .slider-tick.in-selection,
+.ui-slider.mood-raggar.section-5 .slider-tick.in-selection {
+  background: hsl(2, 64%, 85%);
+}
 .ui-slider.mood-rag.section-1 .slider-selection,
 .ui-slider.mood-raggar.section-1 .slider-selection,
 .ui-slider.mood-raggar.section-5 .slider-selection {
@@ -163,6 +168,12 @@
  {
   background: hsl(44, 64%, 35%);
 }
+.ui-slider.mood-rag.section-2 .slider-tick.in-selection,
+.ui-slider.mood-raggar.section-2 .slider-tick.in-selection,
+.ui-slider.mood-raggar.section-4 .slider-tick.in-selection
+ {
+  background: hsl(44, 64%, 85%);
+}
 .ui-slider.mood-rag.section-2 .slider-selection,
 .ui-slider.mood-raggar.section-2 .slider-selection,
 .ui-slider.mood-raggar.section-4 .slider-selection {
@@ -171,6 +182,10 @@
 .ui-slider.mood-rag.section-3 .slider-handle,
 .ui-slider.mood-raggar.section-3 .slider-handle {
   background: hsl(120, 39%, 35%);
+}
+.ui-slider.mood-rag.section-3 .slider-tick.in-selection,
+.ui-slider.mood-raggar.section-3 .slider-tick.in-selection {
+  background: hsl(120, 39%, 85%);
 }
 .ui-slider.mood-rag.section-3 .slider-selection,
 .ui-slider.mood-raggar.section-3 .slider-selection  {

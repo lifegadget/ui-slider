@@ -31,6 +31,9 @@
       reversed=reversed
       selection=selection
       tooltipPosition=tooltipPosition
+      focus=focus
+      naturalArrowKeys=naturalArrowKeys
+      immediateResponse=immediateResponse
     }}
   </widget>
   <code>
@@ -45,6 +48,9 @@
       selection=selection
       reversed=reversed
       tooltipPosition=tooltipPosition
+      focus=focus
+      naturalArrowKeys=naturalArrowKeys
+      immediateResponse=immediateResponse
     }}
   </code>
   <description>
@@ -84,6 +90,19 @@
       <control>
         <span class='name'>Selection:</span>
         <span>{{radio-buttons buttons='before,after,none' value=selection}}</span>
+      </control>
+      <control>
+        <span class='name'>Focus:</span>
+        <span>{{ui-toggle-button on='focus' off='do not focus' value=focus}}</span>
+        <span class='name'>Arrow Direction:</span>
+        <span>{{ui-toggle-button on='up is left' off='up is right' value=naturalArrowKeys}}</span>
+      </control>
+      <p>
+        Also notice that the value property is being updated only when the user finishes the slide. This is often a desirable effect and it is more efficient that constantly reacting to each movement but if you need immediate response you can turn it on.
+      </p>
+      <control>
+        <span class='name'>Immediate Response:</span>
+        <span>{{ui-toggle-button on='immediate' off='after release' value=immediateResponse}}</span>
       </control>
     </controls>
   </description>
@@ -171,18 +190,51 @@
     }}
   </code>
   <description>
-    This control provides lots of CSS hooks to style off of but also includes some standard ones that might be helpful out of the box:
-    <controls>
-      <control>
-      <span class='name'>mood:</span>
-        <span>{{radio-buttons buttons='none:::null,success,info,warning,error' value=mood}}</span>
-      </control>
-    </controls>
     <p>
-      All that's happening in this situation is the mood property is being added as a class called <prop>mood-[xxxx]</prop>. These properties are defined and of course you can set your own or override these.
+      Ticks allow for various values on the range to be highlighted visually. You can also set the <prop>ticksSnapBounnds</prop> property to "pull" the selection to these tick marks. In addition you can adjust the following properties:
     </p>
   </description>
 </row>
+<row>
+  <widget>
+    {{ui-slider
+      ticks="0,200,400"
+      ticksLabels="Terrible,Neutral,Great"
+      ticksSnapBounds=15
+      mood='rag'
+      sections=3
+      tooltip='hide'
+      min=0
+      max=400
+      immediateResponse=immediateResponse2
+    }}
+  </widget>
+  <code>
+    {{display-component componentName='ui-slider'
+      ticks="0,200,400"
+      ticksLabels="Terrible,Neutral,Great"
+      ticksSnapBounds=15
+      mood='rag'
+      sections=3
+      tooltip='hide'
+      min=0
+      max=400
+      immediateResponse=immediateResponse2
+    }}
+  </code>
+  <description>
+    <p>
+      Combining ticks with the styling from the above section. The effect varies based on how frequently you update the value:
+    </p>
+    <controls>
+      <control>
+        <span class='name'>update frequency:</span>
+        <span>{{ui-toggle-button on='immediate' off='after release' value=immediateResponse2}}</span>
+      </control>
+    </controls>
+  </description>
+</row>
+
 
 <h3>Data down, actions up</h3>
 <row>
