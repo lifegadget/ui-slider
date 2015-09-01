@@ -257,7 +257,7 @@ export default Ember.Component.extend({
     let options = this.getConfiguration();
     let value = this.get('value');
     value = typeOf(value) === 'string' ? Number(value) : value;
-    value =  Number.isNaN(value) ? options.min : value;
+    value =  isNaN(value) ? options.min : value;
     options = assign(options, {value: value});
     this._slider = this.$(`#slider-value-${elementId}`).slider(options);
   },
