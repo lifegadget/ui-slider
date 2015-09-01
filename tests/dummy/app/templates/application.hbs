@@ -25,6 +25,7 @@
       min=min
       max=max
       step=step
+      orientation=orientation
       tooltip=tooltip
       disabled=disabled
       handle=handle
@@ -42,6 +43,7 @@
       min=min
       max=max
       step=step
+      orientation=orientation
       tooltip=tooltip
       disabled=disabled
       handle=handle
@@ -96,6 +98,10 @@
       <control>
         <span class='name'>Focus:</span>
         <span>{{ui-toggle-button on='focus' off='do not focus' value=focus}}</span>
+      </control>
+      <control>
+        <span class='name'>Orientation:</span>
+        <span>{{radio-buttons buttons='horizonal,vertical' value=orientation size='small'}}</span>
       </control>
       <p class='downer'>
         Also notice that the value property is being updated only when the user finishes the slide. This is often a desirable effect and it is more efficient that constantly reacting to each movement but if you need immediate response you can turn it on.
