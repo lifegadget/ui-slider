@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('ui-slider', 'Integration | Component | ui slider', {
+moduleForComponent('ui-slider', 'Integration | Component | ui-slider', {
   integration: true
 });
 

@@ -61,9 +61,11 @@ export default Ember.Component.extend({
     const immediateResponse = this.get('immediateResponse');
     let self = this;
     if(immediateResponse) {
-      this._slider.on('slide', function(evt) {
-        Ember.run.next(() => {
-          self.set('value', evt.value);
+      Ember.run.schedule('afterRender', () => {
+        this._slider.on('slide', function(evt) {
+          Ember.run.debounce(() => {
+            self.set('value', evt.value);
+          },30);
         });
       });
     } else {
@@ -237,7 +239,7 @@ export default Ember.Component.extend({
       if(typeOf(data) === 'string') {
         data = data.split(',');
         data = data.map(d=> {
-          return Number.isNaN(Number(d)) ? d : Number(d);
+          return isNaN(Number(d)) ? d : Number(d);
         });
       }
       if(data) {
