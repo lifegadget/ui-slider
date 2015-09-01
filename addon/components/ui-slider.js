@@ -72,9 +72,6 @@ export default Ember.Component.extend({
       this._slider.off('slide');
     }
   }),
-  _value: observer('value','min','max','step', function() {
-    this._valueObserver();
-  }),
   sections: null,
   _oldSection: null,
   _section: computed('value','sections', function() {
@@ -112,6 +109,9 @@ export default Ember.Component.extend({
 
     return section;
   },
+  _value: observer('value','min','max','step', function() {
+    this._valueObserver();
+  }),
   mood: null,
   _mood: computed('mood', function() {
     const mood = this.get('mood');
@@ -258,9 +258,12 @@ export default Ember.Component.extend({
     const elementId = this.get('elementId');
     let options = this.getConfiguration();
     let value = this.get('value');
-    value = typeOf(value) === 'string' ? Number(value) : value;
-    value =  isNaN(value) ? options.min : value;
+    if(typeOf(value) === 'string') {
+      value = isNaN(Number(value)) ? options.min : Number(value);
+    }
+
     options = assign(options, {value: value});
+    console.log('initialising with: %o', options,value);
     this._slider = this.$(`#slider-value-${elementId}`).slider(options);
   },
   addEventListeners() {
