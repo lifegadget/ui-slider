@@ -265,7 +265,6 @@ export default Ember.Component.extend({
     }
 
     options = assign(options, {value: value});
-    console.log('initialising with: %o', options,value);
     this._slider = this.$(`#slider-value-${elementId}`).slider(options);
   },
   addEventListeners() {
