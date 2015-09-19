@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   flashMessages: Ember.inject.service(),
   value: 50,
   disabled: false,
-  orientation: "horizontal",
+  orientation: 'horizontal',
   min: 10,
   max: 100,
   step: 1,

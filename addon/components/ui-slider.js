@@ -57,7 +57,7 @@ export default Ember.Component.extend({
   // VALUE
   keepInRange: true,
   immediateResponse: false,
-  _immediateResponse: observer('immediateResponse', function() {
+  _immediateResponse: on('init',observer('immediateResponse', function() {
     const immediateResponse = this.get('immediateResponse');
     let self = this;
     if(immediateResponse) {
@@ -69,9 +69,11 @@ export default Ember.Component.extend({
         });
       });
     } else {
-      this._slider.off('slide');
+      if(this._slider) {
+        this._slider.off('slide');
+      }
     }
-  }),
+  })),
   sections: null,
   _oldSection: null,
   _section: computed('value','sections', function() {
