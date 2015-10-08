@@ -1,6 +1,6 @@
 {
   "name": "ui-ember-slider",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A visually attractive slider for ambitious Ember apps",
   "directories": {
     "doc": "doc",

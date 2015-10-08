@@ -22,7 +22,7 @@ module.exports = function(environment) {
       'script-src': "'self'",
       'font-src': "'self' ",
       'connect-src': "'self'",
-      'img-src': "'self'",
+      'img-src': "'self' https://npmjs.org https://npmjs.com https://badge.fury.io https://travis-ci.org https://api.travis-ci.org https://codeclimate.com https://*.cloudfront.net",
       'style-src': "'self' ",
       'media-src': "'self'"
     }
