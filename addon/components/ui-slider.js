@@ -311,7 +311,7 @@ export default Ember.Component.extend({
   _i: on('init', function() { return this._init(); }),
   _ia: on('didInitAttrs', function() { return this.didInitAttrs(); }),
   _r: on('willRender', function() { return this.willRender(); }),
-  _d: on('willDestroyElement', function() { return this.willDestroyElement(); }),
+  _d: on('willDestroyElement', function() { return this.destroyJqueryComponent(); }),
   _dr: on('afterRender', function() { return this.didRender(); }),
   _rendered: false,
 
@@ -328,9 +328,6 @@ export default Ember.Component.extend({
   },
   didInitAttrs() {
     this._benchmarkConfig();
-  },
-  willDestroyElement() {
-    this.destroyJqueryComponent();
   },
   didRender() {
     this._rendered = true;
