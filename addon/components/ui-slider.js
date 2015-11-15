@@ -121,7 +121,7 @@ export default Ember.Component.extend({
   }),
   _valueObserver() {
     run.next(()=> {
-      let {value,min,max,sections,_section,range} = this.getProperties('value','min','max','sections','_section','range');
+      let {value,min,max,range} = this.getProperties('value','min','max','range');
       const controlValue = this._slider.slider('getValue');
 
       if(JSON.stringify(value) !== JSON.stringify(controlValue)) {
