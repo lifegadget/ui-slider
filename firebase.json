@@ -1,0 +1,9 @@
+{
+  "firebase": "ui-slider",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

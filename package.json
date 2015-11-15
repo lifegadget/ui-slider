@@ -62,6 +62,6 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "http://development.ui-slider.divshot.io/"
+    "demoURL": "https://ui-slider.firebaseapp.com/"
   }
 }
