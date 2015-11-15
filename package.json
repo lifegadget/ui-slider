@@ -1,6 +1,6 @@
 {
   "name": "ui-ember-slider",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A visually attractive slider for ambitious Ember apps",
   "directories": {
     "doc": "doc",
@@ -23,6 +23,7 @@
       "README.md",
       "addon",
       "app",
+      "blueprints",
       "bower.json",
       "config",
       "index.js",
