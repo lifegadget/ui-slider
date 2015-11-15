@@ -1,6 +1,6 @@
 # [ui-slider](https://github.com/lifegadget/ui-slider) ![ ](https://travis-ci.org/lifegadget/ui-slider.svg) [![npm version](https://badge.fury.io/js/ui-ember-slider.svg)](http://badge.fury.io/js/ui-slider) ![Code Climate](https://codeclimate.com/github/lifegadget/ui-slider/badges/gpa.svg)
 
-> Input controls for ambitious Ember applications.
+> A slider control for ambitious Ember applications
 
 ## Install ##
 - Modern CLI versions
@@ -19,7 +19,7 @@
 ## Usage ##
 For more details on the syntax check out the interactive demo:
 
-> [ui-slider demo and examples](http://development.ui-slider.divshot.io)
+> [ui-slider demo and examples](https://ui-slider.firebaseapp.com/)
 
 ## Dependencies
 Leverages the Bower hosted jQuery plugin:
@@ -33,7 +33,7 @@ This may very well work with older version of Ember and Ember-CLI but it was int
 - Ember 1.13.7+
 - Ember-CLI 1.13.7+
 
-You can see the CI results at: [Travis Reporting](https://travis-ci.org/lifegadget/ui-slider)
+You can see the CI results at: [Travis Reporting](https://ui-slider.firebaseapp.com/)
 
 ## Repo Contribution
 
