@@ -1,6 +1,6 @@
 {
   "name": "ui-ember-slider",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A visually attractive slider for ambitious Ember apps",
   "directories": {
     "doc": "doc",
@@ -15,9 +15,10 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "Ken Snyder",
+  "main": "index.js",
+  "author": "Ken Snyder <ken@ken.net>",
     "files": [
-      "Brocfile.js",
+      "ember-cli-build.js",
       "LICENSE.md",
       "README.md",
       "addon",
@@ -29,7 +30,6 @@
       "testem.json",
       "vendor"
     ],
-    "main": "index.js",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.1.2",
