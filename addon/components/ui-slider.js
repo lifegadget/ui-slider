@@ -9,7 +9,8 @@ const numericApiSurface = ['min','max','step','precision','ticksSnapBounds'];
 const booleanApiSurface = ['range','tooltipSplit','reversed','enabled','naturalArrowKeys','focus'];
 const stringApiSurface = ['selection','tooltip','tooltipSeparator','tooltipPosition','selection','handle','scale','orientation'];
 const arrayApiSurface = ['ticks','ticksPositions','ticksLabels'];
-const apiSurface = [...numericApiSurface,...booleanApiSurface,...stringApiSurface,...arrayApiSurface];
+const functionalApiSurface = ['formatter'];
+const apiSurface = [...numericApiSurface,...booleanApiSurface,...stringApiSurface,...arrayApiSurface, ...functionalApiSurface];
 const assign = function() {
   let target = {};
 
@@ -253,6 +254,9 @@ export default Ember.Component.extend({
       options[snake(item)] = this.get(item);
       return item;
     });
+    functionalApiSurface.map(item => {
+      options[snake(item)] = this.get(item);
+    });
 
     return options;
   },
@@ -308,27 +312,19 @@ export default Ember.Component.extend({
   },
 
   // LIFECYCLE HOOKS
-  _i: on('init', function() { return this._init(); }),
-  _ia: on('didInitAttrs', function() { return this.didInitAttrs(); }),
-  _r: on('willRender', function() { return this.willRender(); }),
   _d: on('willDestroyElement', function() { return this.destroyJqueryComponent(); }),
   _dr: on('afterRender', function() { return this.didRender(); }),
   _rendered: false,
 
-  _init() {
+  _init: on('init', function() {
     run.schedule('afterRender', () => {
       this.initializeJqueryComponent();
       this.addEventListeners();
       this.setDefaultValue();
       this.ensureValueSynced(); // if no default value and value set then we need to get value from the control
+      this._benchmarkConfig();
     });
-  },
-  willRender() {
-
-  },
-  didInitAttrs() {
-    this._benchmarkConfig();
-  },
+  }),
   didRender() {
     this._rendered = true;
   }

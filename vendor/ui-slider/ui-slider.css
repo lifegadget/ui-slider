@@ -1,3 +1,24 @@
+/* FLEXBOX and Auto-width*/
+ .ui-slider {
+   display: flex;
+   width: 100%;
+   align-items: stretch;
+ }
+ .ui-slider .slider {
+   display: flex;
+   flex: 1 1;
+ }
+ .ui-slider .slider-horizontal {
+   min-width: 200px;
+   height: 35px;
+ }
+
+ .ui-slider .slider-vertical {
+   min-height: 200px;
+   width: 35px;
+ }
+
+
 /* MOODS */
 .ui-slider.mood-success .slider-handle {
   background: hsl(120, 39%, 30%);
@@ -219,5 +240,3 @@
 .ui-slider.slider-horizontal .rect {
   margin-left: -5px;
 }
-
-
