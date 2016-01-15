@@ -7,7 +7,7 @@ const snake = thingy => {
 import layout from '../templates/components/ui-slider';
 const numericApiSurface = ['min','max','step','precision','ticksSnapBounds'];
 const booleanApiSurface = ['range','tooltipSplit','reversed','enabled','naturalArrowKeys','focus'];
-const stringApiSurface = ['selection','tooltip','tooltipSeparator','tooltipPosition','selection','handle','scale','orientation'];
+const stringApiSurface = ['selection','tooltip','tooltipSeparator','tooltipPosition','selection','handle','scale','orientation','formatter'];
 const arrayApiSurface = ['ticks','ticksPositions','ticksLabels'];
 const functionalApiSurface = ['formatter'];
 const apiSurface = [...numericApiSurface,...booleanApiSurface,...stringApiSurface,...arrayApiSurface, ...functionalApiSurface];
