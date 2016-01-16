@@ -312,11 +312,8 @@ export default Ember.Component.extend({
   },
 
   // LIFECYCLE HOOKS
-  _d: on('willDestroyElement', function() { return this.destroyJqueryComponent(); }),
-  _dr: on('afterRender', function() { return this.didRender(); }),
-  _rendered: false,
-
-  _init: on('init', function() {
+  init() {
+    this._super(...arguments);
     run.schedule('afterRender', () => {
       this.initializeJqueryComponent();
       this.addEventListeners();
@@ -324,8 +321,9 @@ export default Ember.Component.extend({
       this.ensureValueSynced(); // if no default value and value set then we need to get value from the control
       this._benchmarkConfig();
     });
-  }),
-  didRender() {
-    this._rendered = true;
+  },
+  willDestroyElement() {
+    this._super(...arguments);
+    this.destroyJqueryComponent();
   }
 });
