@@ -9,7 +9,7 @@ module.exports = {
 
 	afterInstall: function() {
 		return this.addBowerPackagesToProject([
-      { name: 'seiyria-bootstrap-slider', target: '~5.2.6'  }
+      { name: 'seiyria-bootstrap-slider', target: '~6.0.6'  }
     ]);
 	}
 };
