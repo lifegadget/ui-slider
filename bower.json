@@ -11,7 +11,7 @@
     "jquery": "^1.11.3",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "qunit": "~1.20.0",
-    "seiyria-bootstrap-slider": "~5.2.6",
+    "seiyria-bootstrap-slider": "~6.0.6",
     "animate.css": "~3.4.0"
   },
   "devDependencies": {
