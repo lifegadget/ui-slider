@@ -1,9 +1,16 @@
 ---
 language: node_js
 node_js:
-  - "0.12"
+  - "4.1.2"
 
 sudo: false
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 
 cache:
   directories:
@@ -18,13 +25,14 @@ env:
 matrix:
   fast_finish: true
   allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
-  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
-  - "npm config set spin false"
-  - "npm install -g npm@^2"
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 2 # give xvfb some time to start
+  - "npm config set progress false"
+  - "npm install -g npm@^3"
 
 install:
   - npm install -g bower
@@ -33,7 +41,6 @@ install:
 
 script:
   - ember try $EMBER_TRY_SCENARIO test
-
 
 notifications:
   slack: lifegadget:mtokkpY5lTA2adgCqWtgCGln
