@@ -314,6 +314,10 @@ export default Ember.Component.extend({
   // LIFECYCLE HOOKS
   init() {
     this._super(...arguments);
+    if(!this.get('elementId')) {
+      this.set('elementId', 'ember-' + Math.random().toString(36).substr(2, 9));
+    }
+
     run.schedule('afterRender', () => {
       this.initializeJqueryComponent();
       this.addEventListeners();
