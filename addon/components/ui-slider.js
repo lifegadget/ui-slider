@@ -47,7 +47,14 @@ export default Ember.Component.extend({
   tooltipSplit: false, // if false only one tooltip for ranges, if true then tooltips for both
   handle: 'round', // values are round, square, triangle, or custom
   reversed: false,
-  enabled: true,
+  enabled: Ember.computed("disabled", {
+    get() {
+      return !this.get("disabled");
+    },
+    set(key, value) {
+      return value;
+    }
+  }),
   naturalArrowKeys: false,
   scale: 'linear',
   focus: false,
