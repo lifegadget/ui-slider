@@ -64,54 +64,54 @@
     <controls>
       <control>
         <span class='name'>min</span>
-        <span>{{number-input step=1 skin='flat' value=min}}</span>
+        <span>{{numeric-input step=1 skin='flat' value=min onChange=(mut min)}}</span>
         <span></span>
         <span class='name'>max</span>
-        <span>{{number-input step=1 skin='flat' value=max}}</span>
+        <span>{{numeric-input step=1 skin='flat' value=max onChange=(mut max)}}</span>
         <span class='name'>step</span>
-        <span>{{number-input step=0.25 skin='flat' value=step}}</span>
+        <span>{{numeric-input step=0.25 skin='flat' value=step onChange=(mut step)}}</span>
       </control>
     </controls>
     <controls>
       <control>
         <span class='name'>It is also possible to enable/disable</span>
-        <span>{{ui-toggle-button on='disabled' off='enabled' value=disabled}}</span>
+        <span>{{ui-toggle-button on='disabled' off='enabled' value=disabled onToggle=(mut disabled)}}</span>
       </control>
       <control>
         <span class='name'>Tooltips can be:</span>
         <span>
-          {{radio-buttons buttons='show,hide,always' value=tooltip size='small'}} &nbsp;
-          {{radio-buttons buttons='top,bottom' value=tooltipPosition size='small'}}
+          {{radio-buttons buttons='show,hide,always' value=tooltip size='small' onChange=(mut tooltip)}} &nbsp;
+          {{radio-buttons buttons='top,bottom' value=tooltipPosition size='small' onChange=(mut tooltipPosition)}}
         </span>
       </control>
       <control>
         <span class='name'>Handle shape:</span>
-        <span>{{radio-buttons buttons='round,square,triangle,rect' value=handle size='small'}}</span>
+        <span>{{radio-buttons buttons='round,square,triangle,rect' value=handle size='small' onChange=(mut handle)}}</span>
       </control>
       <control>
         <span class='name'>Reversed:</span>
-        <span>{{ui-toggle-button on='reversed' off='normal' value=reversed}}</span>
+        <span>{{ui-toggle-button on='reversed' off='normal' value=reversed onToggle=(mut reversed)}}</span>
         <span class='name'>↑/↓ Direction:</span>
-        <span>{{ui-toggle-button on='direction' off='numeric' value=naturalArrowKeys}}</span>
+        <span>{{ui-toggle-button on='direction' off='numeric' value=naturalArrowKeys onToggle=(mut naturalArrowKeys)}}</span>
       </control>
       <control>
         <span class='name'>Selection:</span>
-        <span>{{radio-buttons buttons='before,after,none' value=selection}}</span>
+        <span>{{radio-buttons buttons='before,after,none' value=selection  onChange=(mut tooltip)}}</span>
       </control>
       <control>
         <span class='name'>Focus:</span>
-        <span>{{ui-toggle-button on='focus' off='do not focus' value=focus}}</span>
+        <span>{{ui-toggle-button on='focus' off='do not focus' value=focus onToggle=(mut focus)}}</span>
       </control>
       <control>
         <span class='name'>Orientation:</span>
-        <span>{{radio-buttons buttons='horizonal,vertical' value=orientation size='small'}}</span>
+        <span>{{radio-buttons buttons='horizontal,vertical' value=orientation size='small' onChange=(mut orientation)}}</span>
       </control>
       <p class='downer'>
         Also notice that the value property is being updated only when the user finishes the slide. This is often a desirable effect and it is more efficient that constantly reacting to each movement but if you need immediate response you can turn it on.
       </p>
       <control>
         <span class='name'>Immediate Response:</span>
-        <span>{{ui-toggle-button on='immediate' off='after release' value=immediateResponse}}</span>
+        <span>{{ui-toggle-button on='immediate' off='after release' value=immediateResponse onToggle=(mut immediateResponse)}}</span>
       </control>
     </controls>
   </description>
@@ -134,7 +134,7 @@
     <controls>
       <control>
       <span class='name'>mood:</span>
-        <span>{{radio-buttons buttons='none:::null,success,info,warning,error' value=mood}}</span>
+        <span>{{radio-buttons buttons='none:::null,success,info,warning,error' value=mood  onChange=(mut mood)}}</span>
       </control>
     </controls>
     <p>
@@ -163,11 +163,11 @@
     <controls>
       <control>
         <span class='name'>mood:</span>
-        <span>{{radio-buttons buttons='success,info,warn::warning,err::error,rag,gar,ragar' value=mood2 size='small'}}</span>
+        <span>{{radio-buttons buttons='success,info,warn::warning,err::error,rag,gar,ragar' value=mood2 size='small' onChange=(mut mood2)}}</span>
       </control>
       <control>
         <span class='name'>sections:</span>
-        <span>{{radio-buttons buttons='none:::null,3:::3,4:::4,5:::5,10:::10,discrete:::10|30|70|90' value=sections size='small'}}</span>
+        <span>{{radio-buttons buttons='none:::null,3:::3,4:::4,5:::5,10:::10,discrete:::10|30|70|90' value=sections size='small'  onChange=(mut sections)}}</span>
       </control>
     </controls>
     <p>
@@ -241,7 +241,7 @@
     <controls>
       <control>
         <span class='name'>update frequency:</span>
-        <span>{{ui-toggle-button on='immediate' off='after release' value=immediateResponse2}}</span>
+        <span>{{ui-toggle-button on='immediate' off='after release' value=immediateResponse2  onToggle=(mut immediateResponse2)}}</span>
       </control>
     </controls>
   </description>
@@ -303,11 +303,11 @@
     <controls>
       <control>
         <span class='name'>set value to:</span>
-        <span>{{ui-buttons buttons='20:::20,60:::60,100:::100,150:::150' action='valueChanged'}}</span>
+        <span>{{ui-buttons buttons='20:::20,60:::60,100:::100,150:::150' value=valueChanged  onChange=(mut valueChanged)}}</span>
       </control>
       <control>
         <span class='name'>Use enable/disable to trigger actions</span>
-        <span>{{ui-toggle-button on='disabled' off='enabled' value=disabled2}}</span>
+        <span>{{ui-toggle-button on='disabled' off='enabled' value=disabled2 onToggle=(mut disabled2)}}</span>
       </control>
 
     </controls>
@@ -344,7 +344,7 @@
     <controls>
       <control>
       <span class='name'>mood:</span>
-        <span>{{radio-buttons buttons='success,info,warning,error' value=moodRange}}</span>
+        <span>{{radio-buttons buttons='success,info,warning,error' value=moodRange onChange=(mut moodRange)}}</span>
       </control>
     </controls>
   </description>
