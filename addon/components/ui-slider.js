@@ -47,7 +47,14 @@ export default Ember.Component.extend({
   tooltipSplit: false, // if false only one tooltip for ranges, if true then tooltips for both
   handle: 'round', // values are round, square, triangle, or custom
   reversed: false,
-  enabled: true,
+  enabled: Ember.computed("disabled", {
+    get() {
+      return !this.get("disabled");
+    },
+    set(key, value) {
+      return value;
+    }
+  }),
   naturalArrowKeys: false,
   scale: 'linear',
   focus: false,
@@ -94,7 +101,7 @@ export default Ember.Component.extend({
   }),
   sectionCalculator() {
     let {sections,min,max,value} = this.getProperties('sections','min','max','value');
-    if(!sections || new A(['null','undefined']).contains(value)) {
+    if(!sections || new A(['null','undefined']).includes(value)) {
       return null;
     }
     let section = 1;
@@ -293,7 +300,7 @@ export default Ember.Component.extend({
   },
   setDefaultValue() {
     let {defaultValue,value} = this.getProperties('defaultValue', 'value');
-    if(new A(['null','undefined']).contains(typeOf(value))) {
+    if(new A(['null','undefined']).includes(typeOf(value))) {
       defaultValue = typeOf(defaultValue) === 'string' && defaultValue.split(',').length > 1 ? defaultValue.split(',') : defaultValue;
       this.set('value', defaultValue);
     }
