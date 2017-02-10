@@ -1,3 +1,11 @@
 @import 'ui-button';
 @import 'ui-bootstrap';
 @import 'ui-input';
+
+.badge {
+  background-color: initial;
+}
+
+.demo-css .badges .badge {
+  flex: initial;
+}
