@@ -19,6 +19,14 @@
   flex: 1 0;
 }
 
+.ui-slider .tooltip.in {
+  opacity: 0.9;
+}
+
+.ui-slider .tooltip.bottom {
+  margin-top: 12px;
+}
+
 
 /* MOODS */
 .ui-slider.mood-success .slider-handle {

@@ -10,6 +10,10 @@
   flex: initial;
 }
 
+row {
+  @extend .row;
+}
+
 component {
   @extend .col-6;
   @extend .col-lg-4;

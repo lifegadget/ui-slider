@@ -11,6 +11,11 @@
     "start": "ember server",
     "test": "ember try:each"
   },
+  "ember-addon": {
+    "versionCompatibility": {
+       "ember": ">=2.0.0"
+    }
+  },
   "repository": "git@github.com:lifegadget/ui-slider.git",
   "engines": {
     "node": ">= 0.10.0"
