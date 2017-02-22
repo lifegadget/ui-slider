@@ -1,5 +1,5 @@
-@import 'ui-button';
 @import 'ui-bootstrap';
+@import 'ui-button';
 @import 'ui-input';
 
 .badge {
@@ -7,5 +7,24 @@
 }
 
 .demo-css .badges .badge {
+  flex: initial;
+}
+
+component {
+  @extend .col-6;
+  @extend .col-lg-4;
+}
+
+code {
+  @extend .col-6;
+  @extend .col-lg-4;
+}
+
+description {
+  @extend .col-12;
+  @extend .col-lg-4;
+}
+
+.demo-css .title-block span.badges {
   flex: initial;
 }

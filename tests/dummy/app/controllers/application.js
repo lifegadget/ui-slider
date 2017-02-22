@@ -4,6 +4,7 @@ const {computed, observer, $, A, run, on, typeOf, debug, defineProperty, get, se
 
 export default Ember.Controller.extend({
   flashMessages: Ember.inject.service(),
+  classNames: ['container'],
   value: 50,
   disabled: false,
   orientation: 'horizontal',

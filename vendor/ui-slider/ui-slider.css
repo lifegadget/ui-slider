@@ -1,22 +1,23 @@
 /* FLEXBOX and Auto-width*/
- .ui-slider {
-   display: flex;
-   width: 100%;
-   align-items: stretch;
- }
- .ui-slider .slider {
-   display: flex;
-   flex: 1 1;
- }
- .ui-slider .slider-horizontal {
-   min-width: 200px;
-   height: 35px;
- }
+.ui-slider {
+  display: flex;
+  /*align-items: stretch;*/
+}
+.ui-slider .slider {
+  display: flex;
+}
 
- .ui-slider .slider-vertical {
-   min-height: 200px;
-   width: 35px;
- }
+.ui-slider.fill .slider.slider-horizontal {
+  flex: 1 0;
+}
+.ui-slider.fit .slider {
+  flex: 0 0;
+}
+
+.ui-slider .slider-tick-label-container {
+  display: flex;
+  flex: 1 0;
+}
 
 
 /* MOODS */

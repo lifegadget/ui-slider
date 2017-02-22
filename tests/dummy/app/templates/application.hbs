@@ -11,9 +11,9 @@
 </p>
 <h3>Basic Usage</h3>
 <row>
-  <widget>
+  <component>
     {{ui-slider}}
-  </widget>
+  </component>
   <code>
     {{display-component componentName='ui-slider'}}
   </code>
@@ -22,7 +22,7 @@
   </description>
 </row>
 <row>
-  <widget>
+  <component>
     {{ui-slider
       value=value
       min=min
@@ -39,7 +39,7 @@
       naturalArrowKeys=naturalArrowKeys
       immediateResponse=immediateResponse
     }}
-  </widget>
+  </component>
   <code>
     {{display-component componentName='ui-slider'
       value=value
@@ -119,11 +119,11 @@
 
 <h3>Mood Styling and Sections</h3>
 <row>
-  <widget>
+  <component>
     {{ui-slider
       mood=mood
     }}
-  </widget>
+  </component>
   <code>
     {{display-component componentName='ui-slider'
       mood=mood
@@ -143,14 +143,14 @@
   </description>
 </row>
 <row>
-  <widget>
+  <component>
     {{ui-slider
       mood=mood2
       sections=sections
       action='sectionsAction'
       max=100
     }}
-  </widget>
+  </component>
   <code>
     {{display-component componentName='ui-slider'
       mood=mood2
@@ -181,7 +181,7 @@
 
 <h3>Ticks</h3>
 <row>
-  <widget>
+  <component>
     {{ui-slider
       ticks="0,100,200,300,400"
       ticksLabels="$0,$100,$200,$300,$400"
@@ -190,7 +190,7 @@
       min=0
       max=400
     }}
-  </widget>
+  </component>
   <code>
     {{display-component componentName='ui-slider'
       ticks="0,100,200,150,400"
@@ -208,7 +208,7 @@
   </description>
 </row>
 <row>
-  <widget>
+  <component>
     {{ui-slider
       ticks="0,200,400"
       ticksLabels="Terrible,Neutral,Great"
@@ -220,7 +220,7 @@
       max=400
       immediateResponse=immediateResponse2
     }}
-  </widget>
+  </component>
   <code>
     {{display-component componentName='ui-slider'
       ticks="0,200,400"
@@ -250,11 +250,11 @@
 
 <h3>Data down, actions up</h3>
 <row>
-  <widget>
+  <component>
     {{ui-slider
       defaultValue=defaultValue
     }}
-  </widget>
+  </component>
   <code>
     {{display-component componentName='ui-slider'
       defaultValue=defaultValue
@@ -265,7 +265,7 @@
   </description>
 </row>
 <row>
-  <widget>
+  <component>
     {{ui-slider
       value=DDAUvalue
       defaultValue=defaultValue2
@@ -277,7 +277,7 @@
       changed='changed'
       disabled=disabled2
     }}
-  </widget>
+  </component>
   <code>
     {{display-component componentName='ui-slider'
       value=DDAUvalue
@@ -317,9 +317,9 @@
 <h3>Range Slider</h3>
 <p>Unlike the normal <prop>ui-slider</prop> the <prop>range-slider</prop> has two values which together represent a range. This component's <prop>value</prop> property is a two element array but outside of that it has more similarities than differences.</p>
 <row>
-  <widget>
+  <component>
     {{range-slider}}
-  </widget>
+  </component>
   <code>
     {{display-component componentName='range-slider'}}
   </code>
@@ -328,12 +328,12 @@
   </description>
 </row>
 <row>
-  <widget>
+  <component>
     {{range-slider
       mood=moodRange
       defaultValue='1,5'
     }}
-  </widget>
+  </component>
   <code>
     {{display-component componentName='range-slider'
       mood=moodRange

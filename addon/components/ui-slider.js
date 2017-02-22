@@ -32,12 +32,13 @@ const MAXIMAL_VALUE = 'max_value_exceeded';
 export default Ember.Component.extend({
   layout: layout,
   classNames: ['ui-slider'],
-  classNameBindings: ['isSliding:sliding','_mood','_section','range:range:singular'],
+  classNameBindings: ['isSliding:sliding','_mood','_section','range:range:singular', 'fill:fill:fit'],
   // API Surface (defaults)
   min: 1,
   max: 10,
   step: 1,
   precision: 0,
+  fill: true,
   orientation: 'horizontal',
   range: false,
   selection: 'before', // values are 'before', 'after', or 'none' and indicate placement
