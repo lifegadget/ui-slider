@@ -6,7 +6,7 @@ const snake = thingy => {
 };
 import layout from '../templates/components/ui-slider';
 const numericApiSurface = ['min','max','step','precision','ticksSnapBounds'];
-const booleanApiSurface = ['range','tooltipSplit','reversed','enabled','naturalArrowKeys','focus'];
+const booleanApiSurface = ['range','tooltipSplit','ticksTooltip','reversed','enabled','naturalArrowKeys','focus'];
 const stringApiSurface = ['selection','tooltip','tooltipSeparator','tooltipPosition','selection','handle','scale','orientation'];
 const arrayApiSurface = ['ticks','ticksPositions','ticksLabels'];
 const functionalApiSurface = ['formatter'];
@@ -45,6 +45,7 @@ export default Ember.Component.extend({
   tooltipSeparator: ':', // used in ranges
   tooltipPosition: 'top',
   tooltipSplit: false, // if false only one tooltip for ranges, if true then tooltips for both
+  ticksTooltip: false,
   handle: 'round', // values are round, square, triangle, or custom
   reversed: false,
   enabled: Ember.computed("disabled", {
