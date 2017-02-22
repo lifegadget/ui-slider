@@ -1,7 +1,7 @@
 {
   "name": "ui-slider",
   "dependencies": {
-    "seiyria-bootstrap-slider": "~7.1.2",
+    "seiyria-bootstrap-slider": "^9.7.2",
     "showdown": "^1.4.3"
   },
   "devDependencies": {
