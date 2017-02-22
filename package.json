@@ -1,6 +1,6 @@
 {
   "name": "ui-ember-slider",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "description": "A visually attractive slider for ambitious Ember apps",
   "directories": {
     "doc": "doc",
@@ -12,9 +12,8 @@
     "test": "ember try:each"
   },
   "ember-addon": {
-    "versionCompatibility": {
-       "ember": ">=2.0.0"
-    }
+    "configPath": "tests/dummy/config",
+    "demoURL": "https://ui-slider.firebaseapp.com/"
   },
   "repository": "git@github.com:lifegadget/ui-slider.git",
   "engines": {
@@ -77,9 +76,5 @@
     "ember-cli-babel": "^5.2.4",
     "ember-cli-htmlbars": "^1.1.1",
     "ember-runtime-enumerable-includes-polyfill": "^1.0.4"
-  },
-  "ember-addon": {
-    "configPath": "tests/dummy/config",
-    "demoURL": "https://ui-slider.firebaseapp.com/"
   }
 }
